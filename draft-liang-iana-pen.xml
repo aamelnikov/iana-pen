@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
+<!ENTITY RFC1065 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1065.xml">
+<!ENTITY RFC1157 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1157.xml">
+<!ENTITY RFC1213 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1213.xml">
+<!ENTITY RFC3588 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3588.xml">
+<!ENTITY RFC5226 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5226.xml">
+<!ENTITY RFC5792 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5792.xml">
+<!ENTITY RFC5793 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5793.xml">
+
+]>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?> <!-- used by XSLT processors -->
+<!-- OPTIONS, known as processing instructions (PIs) go here. -->
+<!-- For a complete list and description of PIs,
+     please see http://xml.resource.org/authoring/README.html. -->
+<!-- Below are generally applicable PIs that most I-Ds might want to use. -->
+<?rfc strict="yes" ?> <!-- give errors regarding ID-nits and DTD validation -->
+<!-- control the table of contents (ToC): -->
+<?rfc toc="yes"?> <!-- generate a ToC -->
+<?rfc tocdepth="2"?> <!-- the number of levels of subsections in ToC. default: 3 -->
+<!-- control references: -->
+<?rfc symrefs="yes"?> <!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
+<?rfc sortrefs="yes" ?> <!-- sort the reference entries alphabetically -->
+<!-- control vertical white space: 
+     (using these PIs as follows is recommended by the RFC Editor) -->
+<?rfc compact="yes" ?> <!-- do not start each main section on a new page -->
+<?rfc subcompact="no" ?> <!-- keep one blank line between list items -->
+<!-- end of popular PIs -->
+<rfc category="info" docName="draft-liang-iana-pen-06" ipr="trust200902">
+  <front>
+  	<title abbrev="IANA PEN v2.0">Private Enterprise Number (PEN) practices and 
+  		Internet Assigned Numbers Authority (IANA) registration considerations</title>
+    <author fullname="Pearl Liang" initials="P" surname="Liang">
+      <organization>ICANN</organization>
+      <address>
+	        <postal><street>12025 Waterfront Drive, Suite 300</street>
+	        <city>Los Angeles</city><region>CA</region><code>90094</code>
+			<country>USA</country></postal>
+<!-- <phone/> -->
+<!-- <facsimile/> -->
+      <email>pearl.liang@icann.org</email>
+<!-- <uri/> -->
+      </address>
+    </author>
+    <author initials="A." surname="Melnikov" fullname="Alexey Melnikov">
+      <organization>Isode Ltd</organization>
+      <address>
+        <postal>
+          <street>5 Castle Business Village</street>
+          <street>36 Station Road</street>
+          <city>Hampton</city>
+          <region>Middlesex</region>
+          <code>TW12 2BX</code>
+          <country>UK</country>
+        </postal>
+        <email>Alexey.Melnikov@isode.com</email>
+      </address>
+    </author>
+  	<author initials="D" surname="Conrad" fullname="David Conrad">
+      <organization>ICANN</organization>
+      <address>
+  			<postal>
+  				<street>12025 Waterfront Drive, Suite 300</street>
+  				<city>Los Angeles</city>
+  				<region>CA</region>
+  				<code>90094</code>
+  				<country>US</country>
+  			</postal>
+  			<email>david.conrad@icann.org</email>
+  		</address>
+  	</author>
+    <date year="2015"/>
+<!-- <area/> -->
+<!-- <keyword/> -->
+<!-- <keyword/> -->
+<!-- <keyword/> -->
+<!-- <keyword/> -->
+    <abstract>
+      <t>
+Private Enterprise Numbers (PENs) are a technical protocol parameter frequently assigned for use in the
+management of network connected equipment or software via SNMP-based
+network management systems, LDAP, DIAMETER or GSS-API.  This document 
+discusses what a Private Enterprise Number (PEN) is, common uses of PENs, and
+registration procedures for IANA Considerations.  The registration 
+procedures include instructions and requirements for obtaining a new
+Private Enterprise Number, modifying existing numbers, and the
+removal of existing numbers.
+</t>
+    </abstract>
+  </front>
+  <middle>
+    <section title="Introduction">
+
+  <t>
+    A Private Enterprise Number (also known as a "PEN"), is a non-negative integer, unique within
+    the iso.org.dod.internet.private.enterprise (1.3.6.1.4.1) Object Identifiers (OIDs<!--////Alexey: add reference for OIDs-->) subtree
+    of the ISO Object Identifier (OID) hierarchy. This hierarchy, jointly developed by ITU-T
+    and ISO/IEC was developed to name "any type of object, concept or 'thing' with a globaly unambiguous name
+    which requires a persistent name" (See http://www.oid-info.com/#oid).
+    The sub-tree for which the IETF is the Registration Authority, originally defined in <xref target="RFC1065"/>,
+    is used to allow any entity to obtain a globally unique identifier to reference
+    an organization ("enterprise") in <!--IETF-defined--> protocols.
+<!--
+    The iso.org.dod.internet.private.enterprise OID is known as the Private
+    Enterprise Number OID.
+-->
+<!--From RFC 2578:
+      The private(4) subtree is used to identify objects defined
+      unilaterally.  The enterprises(1) subtree beneath private is used,
+      among other things, to permit providers of networking subsystems to
+      register models of their products.
+-->
+  </t>
+
+  <t>To date, the procedures for the assignment of new PENs and
+     the modification of assigned PENs have not been clearly documented.  
+	   Private Enterprise Numbers are referenced in RFCs  <xref target="RFC1157"/> <xref target="RFC1213"/>
+	   and <xref target="RFC2578"/>.
+	   These documents primarily define Simple Network Management Protocol (SNMP), 
+	   Management Information Base (MIB) and Structure of Management Information (SMI) structures.
+	   As such, none of these RFCs clearly describe PENs nor do they define PEN registration procedures.
+	</t>
+
+	<t>
+    As a result of the lack of documented process, updates to assigned PENs can be challenging.
+
+    Given there are no clear registration requirements, it can be difficult to
+    validate change requests, particularly in cases
+    such as updates to organization names or legal ownership, changes to
+    email addresses of the registered PEN owner, etc.
+  </t>
+
+	<t>
+	   This document introduces PENs, how they are commonly used, and
+     their registration and update procedures.
+	</t>
+
+    </section>
+
+    <section title="Introduction to Private Enterprise Numbers">
+      
+	<t>
+    PENs are frequently embedded in OIDs (Object Identifiers) <!--////Alexey: add reference for OIDs-->,
+    which are most often used in Simple Network Management Protocol (SNMP)
+    Management Information Base (MIB) configurations.
+    However, PENs are not designed to be used exclusively for SNMP purposes,
+    but rather they can be and are used by a variety
+    protocols and Data Manipulation Languages.
+    There is no restriction for using private enterprise numbers for other protocols
+    or data models than SNMP or MIB.</t>
+
+  <t>
+    If the OID is only to be used privately, then enterprise numbers are to be used.
+    PEN is a number under the prefix 1.3.6.1.4.1. and PEN appears as follows:
+    
+      <list>
+        <t>
+          Prefix: iso.org.dod.internet.private.enterprise.(Your node)<vspace/>
+          1.3.6.1.4.1.xxxx
+        </t>
+      </list>
+  </t>
+
+  <t>
+    IANA only manages and maintain this hierarchy tree under the IESG guidelines.
+    There are many other prefixes, such as 2.16.840.1113883, 1.2.840.113549.1.9.16.2.21,
+    etc., under completely different arcs and managed by other repositories (which might or
+    might not be managed by IANA).
+    This document doesn't cover management of these other repositories.
+  </t>
+
+<!--Alexey: not sure about this
+  <t>OID-info.com has detailed resources on OIDs  See: http://oid-info.com/faq.htm#3.</t>
+-->
+      
+	  <section anchor="others" title="Various uses of PENs &quot;in the wild&quot;">
+		<t>As some examples documented on Wikipedia, the most common OIDs seen "in the wild"
+		usually belong to the private enterprise numbers allocated by IANA under the 1.3.6.1.4.1
+		(iso.org.dod.internet.private.enterprise) tree. Increasingly, an OID with health
+        care and public health informatics in the United States is being used. Health Level Seven (HL7),
+        a standards-developing organization in the area of electronic health care data exchange is an
+        assigning authority at the 2.16.840.1.113883 (joint-iso-itu-t.country.us.organization.hl7) tree.
+		</t>
+		<t>It is important to note that despite the name PENs do not necessarily represent a manufacturer or Vendor ID.
+    For example they can represent organizations and even independent developers.
+		</t>
+   
+		<t>	
+			The registrant of a Private Enterprise Number can create sub-trees by appending a "." along
+            with unique numbers at the end of their PEN, i.e. to perform its own sub-allocations. For example,
+            for LDAP, the registrant of PEN &lt;PEN&gt; can use:</t>
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1 for LDAP Object Classes</t>
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.2 for LDAP attribute types</t>
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.3 for LDAP syntaxes</t>
+
+			<t>A particular Object class can have OID:</t>
+
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.100</t>
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.200 for subsidiaries an/or divisions</t>
+
+			<t>In general any number of additional levels are permitted, for example:</t>
+
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.1 can be used as a parent OID for all email related object classes, and</t>
+
+			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.2 can be used for web related object classes.</t>
+
+      <t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.3 can be used for instant messaging related object classes, etc.</t>
+
+    <t>Below are more example uses of PENs:
+
+      <list>
+        <t> Distinguished Names and other components in X.509 certificates; </t>
+        <t> Various schema elements in X.500/LDAP directories;</t>
+        <t> GSS-API</t>
+        <t> extensions to DIAMETER</t>
+        <t> PA-TNC <xref target="RFC5792"/> and PB-TNC <xref target="RFC5793"/></t>
+      </list>
+
+    </t>
+
+    <t>
+      Important to note that how the numbers are used is up to the various implementers and
+      companies building products. Neither ICANN or the IETF can police how people use the numbers
+      out in the wild. The parties in question should resolve any inappropriate usage among themselves,
+      and ICANN and the IETF have no role in such disputes.
+    </t>
+      
+    </section>
+
+  </section>
+
+  <section title="PEN Assignment">
+
+    <t>
+    Assignments of PENs are done by the Internet Assigned Numbers Authority (IANA).
+    This section provides information relating to the assignment of new PENs and
+    the requirements associated with updating already assigned PENs.
+    </t>
+
+    <section anchor="new-assignment" title="Assignment of a New PEN">
+
+      <t>
+        PENs are assigned through a "First Come First Served" registration policy as described in <xref target="RFC5226"/>.
+        They are assigned sequentially.   There is no opportunity to request a particular private enterprise number.
+      </t>
+
+      <t>
+        A PEN can be requested by individuals or organizations in order to obtain a unique value for their
+        "enterprise". Requests for new PENs can be submitted via an automated form at IANA.
+      </t>
+
+      <t>
+        In order to facilitate appropriate registration, and in particular, subsequent update of an assigned PEN,
+        a small amount of information is required. This information includes
+        the name and contact information of the requesting organization (or individual),
+        the name of the contact person for the PEN, and an e-mail address of the contact.
+      </t>
+
+      <t>
+        <!--/////Alexey: open issue, need more text to discourage that-->
+        Historically, users submit a program name, product, project, and random abbreviation as
+        the organization name to when applying for a PEN.  This practice is discouraged
+        since multiple programs, product, and/or projects can have their own sub-trees under the PEN assigned
+        to the organization (or individual), thus there is rarely a need for an organization
+        to have multiple IANA-assigned PENs.
+      </t>
+
+      <t>Before requesting additional OIDs, IANA encourages the identification of any existing
+      OID assignment(s) to the requesting organization (or individual) and the creation of sub-trees
+      where possible and appropriate. IANA may decline the allocation of new PENs to organizations
+      that have existing registrations unless justification for multiple allocations is provided.</t>
+
+    <t>The following information will be requested for a new registration:</t>
+    
+		<t> Registrant (Company/Organization) Name in ASCII (REQUIRED)</t>
+		<t> UTF-8 version of the Registrant (Company/Organization) Name (OPTIONAL)</t>
+		<t> Registrant (Company/Organization) E-mail Address (REQUIRED)</t>
+		<t> Registrant Postal Address (REQUIRED)</t>
+		<t> Contact Name (REQUIRED)</t>
+		<t> Contact E-mail Address (REQUIRED)</t>
+		<t> Contact Postal Address (OPTIONAL)</t>
+		<t> Contact Phone Number (OPTIONAL)</t>
+    <t> Reference (OPTIONAL)</t>
+    <t> Comments (OPTIONAL)</t>
+		<t>
+			Registrant (Company/Organization) Name: The name of 
+			the organization or individual responsible for the registration 
+			of Private Enterprise Number.  If the organization is a company, 
+			it should be the full legal name including "Inc.", "Ltd.", etc.  
+		</t>
+
+    <t>UTF-8 version: If a UTF-8 version of the company name is available, the requester
+    can provide the UTF-8 name.  This will be listed in the registry.
+    </t>
+
+		<t>
+		Registrant (Company/Organization) E-mail Address: An e-mail 
+		address belonging to the organization that requests the PEN.  This e-mail 
+		address will be publicly available in the IANA PEN Registry.  
+		The E-mail address should be a valid email address and can be 
+		a role account e-mail address.
+	</t>
+		<t>
+      Registrant Postal Address: The postal address/location of
+      the organization/individual requesting the PEN.
+      This information is only used by IANA for verification and will be kept private.
+    </t>
+		<t>
+      Contact Name: Name of the individual who will be
+      responsible for the PEN on behalf of the company.
+      This Contact person is authorized to submit changes on behalf of
+      the Registrant (Company/Organization) described above.
+    </t>
+        
+		<t>
+			Contact E-Mail Address: The e-mail address of the individual 
+			responsible for the PEN.  The e-mail address must be one the Contact
+			person can email confirmation from.  This e-mail address will be 
+			publicly available in the IANA PEN Registry.  The Contact E-mail 
+			Address can be the same one as the Registrant's E-mail address. 
+		</t>
+
+		<t>
+			Contact Postal Address: The full postal address of the individual 
+			responsible the PEN, including state/province, zip/postal code, 
+			country, etc.  
+		</t>
+		<t>
+			Contact Phone: The telephone number (with extension where appropriate) 
+			of the individual responsible for the PEN, including country code.
+		</t>
+    <t>
+    		Reference: A document associated with the implementation of the OID 
+    		can be referenced with the registration.  
+    </t>
+    <t>Comments: This field will contain the old Registrant/Company Name associated with a PEN if applicable.</t>
+        
+		<t>It is recommended that a single PEN is granted per organization.  IANA 
+			does not expect to allocate additional PENs to the same Registrants 
+			(Companies/Organizations) that have existing PEN records listed 
+			in the IANA PEN registry.</t>
+        
+    </section>
+      
+    <section anchor="update" title="Update of an Assigned PEN">
+    		
+		<t>When a Company/Organization has been merged or acquired by another enterprise, 
+		the Registrant (Company/Organization) Name can be annotated in the registry.
+    IANA will verify the requested changes, and, if it deems to be
+    necessary, official letters from the existing owner might be required.
+    It is not guarantee that the request will be granted if
+    IANA does not have sufficient information to verify the changes, or
+    if there is legacy use of the PEN out in the wild.
+    </t>
+
+		<t>All information associated with existing PEN records, excluding the Registrant (Company/Organization) Name, 
+			shall be updated if the information is obsoleted.  (See the preceding section to update the Registrant 
+			(Company/Organization) Name.)  A request to update Contact information associated with an existing PEN 
+			record shall be submitted via an automated form at IANA.  Requests can only be fulfilled upon 
+			verification by IANA and/or subject matter experts.  Additional documentations will be required if it 
+			deems to be necessary to validate the request.</t>
+		
+		<t>A change to the Contact Name of existing PEN records can be made to IANA in case of personnel changes, 
+			change of employment, acquisitions, etc.  It would be ideal that new requests shall be completed by 
+			the existing Contacts for the PEN records.  E-mail verifications of the requested changes are required.  
+			Alternatively, supplemental documentations and/or letters issued by the Company/Organization (Registrant 
+			Name) will be required if E-mail verifications cannot be fulfilled and if it deems to be necessary. </t>
+      
+    </section>
+
+    <section anchor="Removals" title="Removals of Private Enterprise Numbers">
+    			
+    <t>Such request does not happen often and regularly.</t>
+
+		<t>Considering the fact that there might be legacy uses of any existing allocation, registrations SHOULD NOT 
+			be removed.</t>
+			
+		<t>A Contact Name can request to remove the corresponding Contact information if the company is no longer
+		in operation, the Contact does not wish to be listed in the IANA PEN registry and
+		if the PEN is no longer believed to be in use.  The Modification 
+		procedure described above SHOULD be followed.</t>
+		
+		
+		<t>Requests can only be fulfilled upon verification by IANA and/or 
+			subject matter experts if it deems to be necessary.
+		</t>
+
+    	<t>IF the removal request is honoured, the entry is marked as "Unassigned"
+<!--////Alexey: some of the entries in the registry are actually marked as "Reserved".
+        Are these errors in the registry?-->      
+	   and annotated as "returned on yyyy-mm-dd by xxxxxxx".
+	   A future update to this document can allow IANA to reallocate such returned PEN,
+	   however this document doesn't allow for that.</t>
+
+    	</section>
+
+    </section>
+
+    <section title="Registration in the Private Enterprise Number registry">
+
+      <section title="Registration of PEN" anchor="registry-content">
+        
+        <t>The registry table consists of a list of the following properties:</t>
+
+        <t> PEN number</t>
+        <t> Registrant (Company/Organization) Name (in ASCII)</t>
+        <t> UTF-8 version of the Registrant (Company/Organization) Name</t>
+        <t> Registrant (Company/Organization) E-mail Address (REQUIRED)</t>
+        <t> Contact Name</t>
+        <t> Contact E-mail Address</t>
+        <t> Date Assigned</t>
+        <t> Date Modified</t>
+        <t> Reference</t>
+        <t> Comments</t>
+
+        <t>NOTE: See <xref target="new-assignment"/> for definition of these properties.</t>
+
+        <t>o  Values marked as "Reserved" (excluding value zero) in the registry can not be reassigned
+        to a new company or individual without consulting IESG (or expert(s) designated by IESG).
+        Reserved entries mark entries with unclear ownership.</t>
+
+        <t>o  Value "Unassigned" SHOULD NOT be re-assigned unless specified 
+			  otherwise, i.e. when the available pool of PENs runs out.</t>
+        
+      </section>
+
+      <section anchor="syntax" title="Syntax for Private Enterprise Names and PENs">
+
+        <t>
+          o  UTF-8 Names of Private Enterprises MUST satisfy the requirements of the
+          NicknameFreeformClass <xref target="I-D.ietf-precis-nickname"/>.
+          (<!--////Alexey: Verify the explanation-->
+          Basically, this means that all ASCII letters, ASCII digits, ASCII punctuation characters,
+          Unicode symbols are allowed.)
+        </t>
+
+        <t>o  Names of Private Enterprises MUST NOT begin or end with a hyphen</t>
+
+        <t>
+          o  Maximum value for PENs is hereby defined within 2**32-1 with 0 and 0xFFFFFF (in hex) marked as Reserved.
+          (Note that while the original PEN definition has no upper bound, this document defines the upper bound,
+          because some protocol make assumptions about how big PENs can be.
+          For example, DIAMETER <xref target="RFC3588"/> assumes that this value is no bigger than 2**32-1.)
+          <!--pearl: i cannot be sure if we can insert the upper limit and mark it as "Reserved" in the registry as it's an event-triggered base page. -->
+        </t>
+
+      </section>
+
+    </section>
+
+    <section anchor="Acknowledgements" title="Acknowledgements">
+      
+	    <t>
+		  The authors would like to thank Dan Romascanu, Michelle Cotton, 
+		  and Bert Wijnen for their contributions to this document.
+	    </t>
+      
+    	<!--///Pearl: to add Benoit? -->
+    </section>
+    
+    <section anchor="IANA" title="IANA Considerations">
+
+      <t>
+      This document requests IANA to update the PEN online template forms both NEW and Modification
+      as defined in sections <xref target="new-assignment"/> and <xref target="update"/>.
+      </t>
+
+      <t>
+      The PEN registry should be updated to include the information as defined
+      in <xref target="registry-content"/>.
+      </t>
+
+      <section anchor="Historic" title="Historical Assignments">
+    		<t>This document will correct the missing historical assignments that 
+    			predates ICANN's management of the existing registry.  These entries
+          will be marked as "Reserved" and annotated as "Returned on yyyy-mm-dd" in the registry.
+          These numbers MAY be re-assigned when the available pool of
+          PENs runs out upon instructions from IESG (or IESG assigned expert(s)).</t>
+
+          <t>2187, 2188, 3513, 4164, 4565, 4600, 4913, 4999, 5099, 5144, 5201, 5683,
+    			5777, 6260, 6619, 14827, 16739, 26975</t>
+          
+          <t>The range from 11670 to 11769</t>
+    		
+    	</section>
+      
+    </section>
+    
+    <section anchor="Security" title="Security Considerations">
+	  <t>
+        See the Security Considerations section in BCP 26 <xref target="RFC5226"/>,
+        and note that improper definition and application of IANA registration policies
+        can introduce both interoperability and security issues.
+        It is critical that registration policies be considered carefully and separately
+        for each registry.
+        Overly restrictive policies can result in the lack of registration of
+        code points and parameters that need to be registered, while overly permissive
+        policies can result in inappropriate registrations.
+        Striking the right balance is an important part of document development.
+      </t>
+
+      <t>
+        As mentioned in a preceding section, given there are no clear registration requirements
+        in the past, only limited information is recorded, significant out-of-date information
+        is listed in the registry, and there is no strong authentication mechanism in place,
+        the implications (if any) of the theft of PENs is possible.  There is a possibility
+        that the registration data can be transferred to someone else unintentionally.
+      </t>
+    </section>
+  </middle>
+  <back>
+    <references title="Normative References">
+	      &RFC2119;
+	      &RFC5226;
+
+        <reference anchor="I-D.ietf-precis-nickname">
+          <front>
+            <title>Preparation and Comparison of Nicknames</title>
+            <author initials="P" surname="Saint-Andre" fullname="Peter Saint-Andre">
+              <organization/>
+            </author>
+            <date month="January" day="23" year="2014"/>
+            <abstract>
+              <t>
+                This document describes how to prepare and compare Unicode strings representing nicknames, primarily for use within textual chatrooms. This profile is intended to be used by messaging and text conferencing technologies such as the Extensible Messaging and Presence Protocol (XMPP), the Message Session Relay Protocol (MSRP), and Centralized Conferencing (XCON).
+              </t>
+            </abstract>
+          </front>
+          <seriesInfo name="Internet-Draft" value="draft-ietf-precis-nickname-09"/>
+          <format type="TXT" target="http://www.ietf.org/internet-drafts/draft-ietf-precis-nickname-09.txt"/>
+        </reference>
+    </references>
+
+    <references title="Informative References">
+    	  &RFC1065;
+	      &RFC1157;
+	      &RFC1213;
+	      &RFC2578;
+        &RFC3588;
+	      &RFC5792;
+	      &RFC5793;
+    </references>
+<!-- Changes from last versions:
+
+- Changes in 05:
+1. cleaned up some redundant texts
+2. modified the Reserved value not for allocation
+
+
+- Changes in 04:
+1. Use draft-ietf-precis-nickname to describe allowed Unicode characters in Names of Private Enterprises.
+2. Clarified the limit of 2**32-1 on PENs.
+3. Reordered requirements, so that requirements on Names of Private Enterprises and PEN values are grouped together.
+4. Replaced one use of Reserved with Unassigned.
+
+- Changes in 03:
+1. Removed an internal note in the IANA Considerations section.
+2. Editted the "Modification of Private Enterprise Numbers" section to 
+clarify that the Registrant/Company Name can be changed with verification.
+- 
+
+-->
+  </back>
+</rfc>
