@@ -58,19 +58,6 @@
         <email>Alexey.Melnikov@isode.com</email>
       </address>
     </author>
-  	<author initials="D" surname="Conrad" fullname="David Conrad">
-      <organization>ICANN</organization>
-      <address>
-  			<postal>
-  				<street>12025 Waterfront Drive, Suite 300</street>
-  				<city>Los Angeles</city>
-  				<region>CA</region>
-  				<code>90094</code>
-  				<country>US</country>
-  			</postal>
-  			<email>david.conrad@icann.org</email>
-  		</address>
-  	</author>
     <date year="2015"/>
 <!-- <area/> -->
 <!-- <keyword/> -->
@@ -542,6 +529,13 @@ removal of existing numbers.
 	      &RFC5792;
 	      &RFC5793;
     </references>
+
+    <section title="Acknowledgements">
+
+      <t>David Conrad edited an earlier version of this document.</t>
+
+    </section>
+
 <!-- Changes from last versions:
 
 - Changes in 05:
