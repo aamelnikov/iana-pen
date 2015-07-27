@@ -28,7 +28,7 @@
 <?rfc compact="yes" ?> <!-- do not start each main section on a new page -->
 <?rfc subcompact="no" ?> <!-- keep one blank line between list items -->
 <!-- end of popular PIs -->
-<rfc category="info" docName="draft-liang-iana-pen-07" ipr="trust200902">
+<rfc category="info" docName="draft-liang-iana-pen-06" ipr="trust200902">
   <front>
   	<title abbrev="IANA PEN v2.0">Private Enterprise Number (PEN) practices and 
   		Internet Assigned Numbers Authority (IANA) registration considerations</title>
