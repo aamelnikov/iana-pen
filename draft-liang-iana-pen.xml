@@ -30,8 +30,7 @@
 <!-- end of popular PIs -->
 <rfc category="info" docName="draft-liang-iana-pen-07" ipr="trust200902">
   <front>
-  	<title abbrev="IANA PEN v2.0">Private Enterprise Number (PEN) practices and 
-  		Internet Assigned Numbers Authority (IANA) registration considerations</title>
+  	<title abbrev="IANA PEN v2.0">IANA Registration Considerations Private Enterprise Number (PEN)</title>
     <author fullname="Pearl Liang" initials="P" surname="Liang">
       <organization>ICANN</organization>
       <address>
@@ -66,14 +65,14 @@
 <!-- <keyword/> -->
     <abstract>
       <t>
-Private Enterprise Numbers (PENs) are a technical protocol parameter frequently assigned for use in the
-management of network connected equipment or software via SNMP-based
-network management systems, LDAP, DIAMETER or GSS-API.  This document 
-discusses what a Private Enterprise Number (PEN) is, common uses of PENs, and
-registration procedures for IANA Considerations.  The registration 
+Private Enterprise Numbers (PENs) are a technical protocol parameter frequently used
+for network management, and in protocols such as
+LDAP, DIAMETER or GSS-API.  This document 
+discusses what a PEN is, common uses for PENs, and
+IANA's registration procedures PENs.  The registration 
 procedures include instructions and requirements for obtaining a new
-Private Enterprise Number, modifying existing numbers, and the
-removal of existing numbers.
+PEN, modifying existing registrations, and the
+removal of existing registrations.
 </t>
     </abstract>
   </front>
