@@ -30,7 +30,7 @@
 <!-- end of popular PIs -->
 <rfc category="info" docName="draft-liang-iana-pen-07" ipr="trust200902">
   <front>
-  	<title abbrev="IANA PEN v2.0">IANA Registration Considerations Private Enterprise Number (PEN)</title>
+  	<title abbrev="IANA PEN v2.0">IANA Registration Considerations for Private Enterprise Numbers (PENs)</title>
     <author fullname="Pearl Liang" initials="P" surname="Liang">
       <organization>ICANN</organization>
       <address>
