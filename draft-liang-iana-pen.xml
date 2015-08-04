@@ -9,6 +9,12 @@
 <!ENTITY RFC5226 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5226.xml">
 <!ENTITY RFC5792 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5792.xml">
 <!ENTITY RFC5793 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5793.xml">
+<!ENTITY RFC2865 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2865.xml">
+<!ENTITY RFC5424 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5424.xml">
+<!ENTITY RFC5612 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5612.xml">
+<!ENTITY RFC6350 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6350.xml">
+<!ENTITY RFC5280 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5280.xml">
+<!ENTITY RFC5284 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5284.xml">
 
 ]>
 <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?> <!-- used by XSLT processors -->
@@ -161,57 +167,30 @@ removal of existing registrations.
   <t>OID-info.com has detailed resources on OIDs  See: http://oid-info.com/faq.htm#3.</t>
 -->
       
-	  <section anchor="others" title="Various uses of PENs &quot;in the wild&quot;">
-		<t>As some examples documented on Wikipedia, the most common OIDs seen "in the wild"
-		usually belong to the private enterprise numbers allocated by IANA under the 1.3.6.1.4.1
-		(iso.org.dod.internet.private.enterprise) tree. Increasingly, an OID with health
-        care and public health informatics in the United States is being used. Health Level Seven (HL7),
-        a standards-developing organization in the area of electronic health care data exchange is an
-        assigning authority at the 2.16.840.1.113883 (joint-iso-itu-t.country.us.organization.hl7) tree.
-		</t>
-		<t>It is important to note that despite the name PENs do not necessarily represent a manufacturer or Vendor ID.
-    For example they can represent organizations and even independent developers.
-		</t>
-   
-		<t>	
-			The registrant of a Private Enterprise Number can create sub-trees by appending a "." along
-            with unique numbers at the end of their PEN, i.e. to perform its own sub-allocations. For example,
-            for LDAP, the registrant of PEN &lt;PEN&gt; can use:</t>
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1 for LDAP Object Classes</t>
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.2 for LDAP attribute types</t>
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.3 for LDAP syntaxes</t>
+	  <section anchor="others" title="Various Uses of PENs &quot;in the wild&quot;">
 
-			<t>A particular Object class can have OID:</t>
+<t>
+PENs as integers are used in many ways. In IETF protocols, they are often used in extension
+mechanisms to cause an extension to have a unique identifier.
+Examples of protocols that use PEN values in their extension mechanisms include
+RADIUS <xref target="RFC2865"/>,
+DIAMETER <xref target="RFC3588"/>,
+Syslog <xref target="RFC5424"/>,
+RSVP <xref target="RFC5284"/>,
+and vCard <xref target="RFC6350"/>.
+</t>
 
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.100</t>
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.200 for subsidiaries an/or divisions</t>
+<t>
+PENs as part of an OID are also used in protocols for extension identification, although generally only in protocols that
+already use OIDs as identifiers. For examle, extensions in PKIX <xref target="RFC5280"/> are given as OIDs,
+so private extensions that use PENs would use the full OID.
+</t>
 
-			<t>In general any number of additional levels are permitted, for example:</t>
-
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.1 can be used as a parent OID for all email related object classes, and</t>
-
-			<t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.2 can be used for web related object classes.</t>
-
-      <t>iso.org.dod.internet.private.enterprise.&lt;PEN&gt;.1.3 can be used for instant messaging related object classes, etc.</t>
-
-    <t>Below are more example uses of PENs:
-
-      <list>
-        <t> Distinguished Names and other components in X.509 certificates; </t>
-        <t> Various schema elements in X.500/LDAP directories;</t>
-        <t> GSS-API</t>
-        <t> extensions to DIAMETER</t>
-        <t> PA-TNC <xref target="RFC5792"/> and PB-TNC <xref target="RFC5793"/></t>
-      </list>
-
-    </t>
-
-    <t>
-      Important to note that how the numbers are used is up to the various implementers and
-      companies building products. Neither ICANN or the IETF can police how people use the numbers
-      out in the wild. The parties in question should resolve any inappropriate usage among themselves,
-      and ICANN and the IETF have no role in such disputes.
-    </t>
+<t>
+The places that PENs are used is completely up to implementers. Neither IANA nor the IETF police how
+people use the numbers out in the wild, nor do they have any say in disputes about how any
+particular PEN might or might not be used.
+</t>
       
     </section>
 
@@ -458,6 +437,11 @@ removal of existing registrations.
       in <xref target="registry-content"/>.
       </t>
 
+<t>
+There is a PEN number, 32473, reserved for use as examples in documentation.
+This reservation is described in <xref target="RFC5612"/>.
+</t>
+
       <section anchor="Historic" title="Historical Assignments">
     		<t>This document will correct the missing historical assignments that 
     			predates ICANN's management of the existing registry.  These entries
@@ -525,8 +509,14 @@ removal of existing registrations.
 	      &RFC1213;
 	      &RFC2578;
         &RFC3588;
+	      &RFC5280;
+	      &RFC5284;
+	      &RFC5424;
+	      &RFC2865;
+	      &RFC5612;
 	      &RFC5792;
 	      &RFC5793;
+	      &RFC6350;
     </references>
 
     <section title="Acknowledgements">
