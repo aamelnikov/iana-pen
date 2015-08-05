@@ -260,34 +260,22 @@ removal of existing registrations.
 
     <t>The following information will be requested for a new registration:</t>
     
-		<t> Registrant (Company/Organization) Name in ASCII (REQUIRED)</t>
-		<t> UTF-8 version of the Registrant (Company/Organization) Name (OPTIONAL)</t>
-		<t> Registrant (Company/Organization) E-mail Address (REQUIRED)</t>
+		<t> Registrant (Company/Organization) Name (REQUIRED)</t>
 		<t> Registrant Postal Address (REQUIRED)</t>
 		<t> Contact Name (REQUIRED)</t>
 		<t> Contact E-mail Address (REQUIRED)</t>
 		<t> Contact Postal Address (OPTIONAL)</t>
 		<t> Contact Phone Number (OPTIONAL)</t>
-    <t> Reference (OPTIONAL)</t>
-    <t> Comments (OPTIONAL)</t>
+		<t> Reference (OPTIONAL)</t>
+		<t> Comments (OPTIONAL)</t>
 		<t>
 			Registrant (Company/Organization) Name: The name of 
 			the organization or individual responsible for the registration 
 			of Private Enterprise Number.  If the organization is a company, 
-			it should be the full legal name including "Inc.", "Ltd.", etc.  
+			it should be the full legal name including "Inc.", "Ltd.", etc.
+            The registrant name can contain non-ASCII characters, but IANA might limit the characters allowed.
 		</t>
 
-    <t>UTF-8 version: If a UTF-8 version of the company name is available, the requester
-    can provide the UTF-8 name.  This will be listed in the registry.
-    </t>
-
-		<t>
-		Registrant (Company/Organization) E-mail Address: An e-mail 
-		address belonging to the organization that requests the PEN.  This e-mail 
-		address will be publicly available in the IANA PEN Registry.  
-		The E-mail address should be a valid email address and can be 
-		a role account e-mail address.
-	</t>
 		<t>
       Registrant Postal Address: The postal address/location of
       the organization/individual requesting the PEN.
@@ -298,6 +286,7 @@ removal of existing registrations.
       responsible for the PEN on behalf of the company.
       This Contact person is authorized to submit changes on behalf of
       the Registrant (Company/Organization) described above.
+      The contact name can contain non-ASCII characters, but IANA might limit the characters allowed.
     </t>
         
 		<t>
@@ -391,9 +380,7 @@ removal of existing registrations.
         <t>The registry table consists of a list of the following properties:</t>
 
         <t> PEN number</t>
-        <t> Registrant (Company/Organization) Name (in ASCII)</t>
-        <t> UTF-8 version of the Registrant (Company/Organization) Name</t>
-        <t> Registrant (Company/Organization) E-mail Address (REQUIRED)</t>
+        <t> Registrant (Company/Organization) Name</t>
         <t> Contact Name</t>
         <t> Contact E-mail Address</t>
         <t> Date Assigned</t>
@@ -413,16 +400,6 @@ removal of existing registrations.
       </section>
 
       <section anchor="syntax" title="Syntax for Private Enterprise Names and PENs">
-
-        <t>
-          o  UTF-8 Names of Private Enterprises MUST satisfy the requirements of the
-          NicknameFreeformClass <xref target="I-D.ietf-precis-nickname"/>.
-          (<!--////Alexey: Verify the explanation-->
-          Basically, this means that all ASCII letters, ASCII digits, ASCII punctuation characters,
-          Unicode symbols are allowed.)
-        </t>
-
-        <t>o  Names of Private Enterprises MUST NOT begin or end with a hyphen</t>
 
         <t>
           o  Maximum value for PENs is hereby defined within 2**32-1 with 0 and 0xFFFFFF (in hex) marked as Reserved.
@@ -501,22 +478,6 @@ removal of existing registrations.
 	      &RFC2119;
 	      &RFC5226;
 
-        <reference anchor="I-D.ietf-precis-nickname">
-          <front>
-            <title>Preparation and Comparison of Nicknames</title>
-            <author initials="P" surname="Saint-Andre" fullname="Peter Saint-Andre">
-              <organization/>
-            </author>
-            <date month="January" day="23" year="2014"/>
-            <abstract>
-              <t>
-                This document describes how to prepare and compare Unicode strings representing nicknames, primarily for use within textual chatrooms. This profile is intended to be used by messaging and text conferencing technologies such as the Extensible Messaging and Presence Protocol (XMPP), the Message Session Relay Protocol (MSRP), and Centralized Conferencing (XCON).
-              </t>
-            </abstract>
-          </front>
-          <seriesInfo name="Internet-Draft" value="draft-ietf-precis-nickname-09"/>
-          <format type="TXT" target="http://www.ietf.org/internet-drafts/draft-ietf-precis-nickname-09.txt"/>
-        </reference>
     </references>
 
     <references title="Informative References">
