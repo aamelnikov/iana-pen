@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
-<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
 <!ENTITY RFC1065 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1065.xml">
 <!ENTITY RFC1157 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1157.xml">
@@ -360,13 +359,13 @@ removal of existing registrations.
     			
     <t>Such request does not happen often and regularly.</t>
 
-		<t>Considering the fact that there might be legacy uses of any existing allocation, registrations SHOULD NOT 
+		<t>Considering the fact that there might be legacy uses of any existing allocation, registrations generally will not 
 			be removed.</t>
 			
 		<t>A Contact Name can request to remove the corresponding Contact information if the company is no longer
 		in operation, the Contact does not wish to be listed in the IANA PEN registry and
 		if the PEN is no longer believed to be in use.  The Modification 
-		procedure described above SHOULD be followed.</t>
+		procedure described above would be followed.</t>
 		
 		
 		<t>Requests can only be fulfilled upon verification by IANA and/or 
@@ -407,7 +406,7 @@ removal of existing registrations.
         to a new company or individual without consulting IESG (or expert(s) designated by IESG).
         Reserved entries mark entries with unclear ownership.</t>
 
-        <t>o  Value "Unassigned" SHOULD NOT be re-assigned unless specified 
+        <t>o  Value "Unassigned" will generally not be re-assigned unless specified 
 			  otherwise, i.e. when the available pool of PENs runs out.</t>
         
       </section>
@@ -498,7 +497,6 @@ removal of existing registrations.
   </middle>
   <back>
     <references title="Normative References">
-	      &RFC2119;
 	      &RFC5226;
 
         <reference anchor="I-D.ietf-precis-nickname">
