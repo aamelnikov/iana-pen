@@ -77,7 +77,10 @@ removal of existing registrations.
   <t>
     A Private Enterprise Number (also known as a "PEN"), is a non-negative integer, unique within
     the ISO Object Identifier (OID) hierarchy. The full OID hierarchy was jointly developed by ITU-T
-    and ISO/IEC to allow the assignment of globaly unambiguous numeric names. The basic idea is that
+    and ISO/IEC to allow the assignment of globaly unambiguous numeric names.
+    (The original document describing the OID hierarchy has been withdrawn by ITU-T, but some
+    current description can be found in the ITU-T X.660 and X.670 Recommendation series.)
+    The basic idea behind OIDs is that
     each level of the hierarchy could have its own registration process for names in that level.
     PENs are a set of numbers in a subtree of the OIDs tree.
   </t>
