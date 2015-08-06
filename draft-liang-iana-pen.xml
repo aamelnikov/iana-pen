@@ -353,7 +353,9 @@ removal of existing registrations.
 			the existing Contacts for the PEN records.  E-mail verifications of the requested changes are required.  
 			Alternatively, supplemental documentations and/or letters issued by the Company/Organization (Registrant 
 			Name) will be required if E-mail verifications cannot be fulfilled and if it deems to be necessary. </t>
-      
+ 
+<t>IANA does not allow removal of entries from this registry.</t>
+     
     </section>
 
     </section>
