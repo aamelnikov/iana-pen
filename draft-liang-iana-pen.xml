@@ -406,14 +406,14 @@ removal of existing registrations.
       <section anchor="syntax" title="Syntax for Private Enterprise Names and PENs">
 
         <t>
-          o  UTF-8 Names of Private Enterprises should satisfy the requirements of the
+          o  UTF-8 Names of Private Enterprises MUST satisfy the requirements of the
           NicknameFreeformClass <xref target="I-D.ietf-precis-nickname"/>.
           (<!--////Alexey: Verify the explanation-->
           Basically, this means that all ASCII letters, ASCII digits, ASCII punctuation characters,
           Unicode symbols are allowed.)
         </t>
 
-        <t>o  Names of Private Enterprises should not begin or end with a hyphen</t>
+        <t>o  Names of Private Enterprises MUST NOT begin or end with a hyphen</t>
 
         <t>
           The range for PENs is 0 to 2**32-1. The values 0 and 4294967295 are marked as Reserved.
