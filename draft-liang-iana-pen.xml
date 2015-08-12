@@ -332,34 +332,10 @@ particular PEN might or might not be used.
 			the existing Contacts for the PEN records.  E-mail verifications of the requested changes are required.  
 			Alternatively, supplemental documentations and/or letters issued by the Company/Organization (Registrant 
 			Name) will be required if E-mail verifications cannot be fulfilled and if it deems to be necessary. </t>
-      
+ 
+<t>IANA does not allow removal of entries from this registry.</t>
+     
     </section>
-
-    <section anchor="Removals" title="Removals of Private Enterprise Numbers">
-    			
-    <t>Such request does not happen often and regularly.</t>
-
-		<t>Considering the fact that there might be legacy uses of any existing allocation, registrations SHOULD NOT 
-			be removed.</t>
-			
-		<t>A Contact Name can request to remove the corresponding Contact information if the company is no longer
-		in operation, the Contact does not wish to be listed in the IANA PEN registry and
-		if the PEN is no longer believed to be in use.  The Modification 
-		procedure described above SHOULD be followed.</t>
-		
-		
-		<t>Requests can only be fulfilled upon verification by IANA and/or 
-			subject matter experts if it deems to be necessary.
-		</t>
-
-    	<t>IF the removal request is honoured, the entry is marked as "Unassigned"
-<!--////Alexey: some of the entries in the registry are actually marked as "Reserved".
-        Are these errors in the registry?-->      
-	   and annotated as "returned on yyyy-mm-dd by xxxxxxx".
-	   A future update to this document can allow IANA to reallocate such returned PEN,
-	   however this document doesn't allow for that.</t>
-
-    	</section>
 
     </section>
 
@@ -428,7 +404,7 @@ particular PEN might or might not be used.
     <section anchor="IANA" title="IANA Considerations">
 
       <t>
-      This document requests IANA to update the PEN online template forms both NEW and Modification
+      This document requests IANA to update the PEN online template forms both new and modified registrations
       as defined in sections <xref target="new-assignment"/> and <xref target="update"/>.
       </t>
 
