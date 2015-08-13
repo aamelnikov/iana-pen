@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
-<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
-<!ENTITY RFC1065 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1065.xml">
-<!ENTITY RFC1157 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1157.xml">
-<!ENTITY RFC1213 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1213.xml">
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"> 
 <!ENTITY RFC3588 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3588.xml">
 <!ENTITY RFC5226 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5226.xml">
 <!ENTITY RFC5792 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5792.xml">
@@ -87,32 +83,32 @@ removal of existing registrations.
 
   <t>
     A Private Enterprise Number (also known as a "PEN"), is a non-negative integer, unique within
-    the iso.org.dod.internet.private.enterprise (1.3.6.1.4.1) Object Identifiers (OIDs<!--////Alexey: add reference for OIDs-->) subtree
-    of the ISO Object Identifier (OID) hierarchy. This hierarchy, jointly developed by ITU-T
-    and ISO/IEC was developed to name "any type of object, concept or 'thing' with a globaly unambiguous name
-    which requires a persistent name" (See http://www.oid-info.com/#oid).
-    The sub-tree for which the IETF is the Registration Authority, originally defined in <xref target="RFC1065"/>,
-    is used to allow any entity to obtain a globally unique identifier to reference
-    an organization ("enterprise") in <!--IETF-defined--> protocols.
-<!--
-    The iso.org.dod.internet.private.enterprise OID is known as the Private
-    Enterprise Number OID.
--->
-<!--From RFC 2578:
-      The private(4) subtree is used to identify objects defined
-      unilaterally.  The enterprises(1) subtree beneath private is used,
-      among other things, to permit providers of networking subsystems to
-      register models of their products.
--->
+    the ISO Object Identifier (OID) hierarchy. The full OID hierarchy was jointly developed by ITU-T
+    and ISO/IEC to allow the assignment of globaly unambiguous numeric names.
+    (The original document describing the OID hierarchy has been withdrawn by ITU-T, but some
+    current description can be found in the ITU-T X.660 and X.670 Recommendation series.)
+    The basic idea behind OIDs is that
+    each level of the hierarchy could have its own registration process for names in that level.
+    PENs are a set of numbers in a subtree of the OIDs tree.
   </t>
 
-  <t>To date, the procedures for the assignment of new PENs and
-     the modification of assigned PENs have not been clearly documented.  
-	   Private Enterprise Numbers are referenced in RFCs  <xref target="RFC1157"/> <xref target="RFC1213"/>
-	   and <xref target="RFC2578"/>.
-	   These documents primarily define Simple Network Management Protocol (SNMP), 
-	   Management Information Base (MIB) and Structure of Management Information (SMI) structures.
-	   As such, none of these RFCs clearly describe PENs nor do they define PEN registration procedures.
+  <t>
+    The PEN sub-tree for which the IETF is the Registration Authority, originally defined sometime before 1990,
+    is used to allow any entity to obtain a globally unique identifier to reference
+    an organization ("enterprise"), often in protocols. IANA is now the Registration Authority.
+    The location of the PEN subtree in the OID
+    hierarchy is 1.3.6.1.4.1, which is also known as "iso.org.dod.internet.private.enterprise".
+  </t>
+
+  <t>
+     Many standards, both from the IETF and other organizations, use PENs as identifiers. These standards
+     sometimes use just the PEN (the single integer assigned by IANA, such as "42"), or sometimes use
+     the entire OID including the PEN (such as "1.3.6.1.4.1.42").
+  </t>
+
+  <t>To date, the procedures for the assignment of PENs have not been clearly documented. RFCs from the
+     early 1990s talk about the use of PENs, but not how they are assigned. This document fixes that
+     problem by defining the procedures IANA uses to assign PENs.
 	</t>
 
 	<t>
@@ -123,11 +119,6 @@ removal of existing registrations.
     such as updates to organization names or legal ownership, changes to
     email addresses of the registered PEN owner, etc.
   </t>
-
-	<t>
-	   This document introduces PENs, how they are commonly used, and
-     their registration and update procedures.
-	</t>
 
     </section>
 
@@ -380,11 +371,10 @@ particular PEN might or might not be used.
         <t>o  Names of Private Enterprises MUST NOT begin or end with a hyphen</t>
 
         <t>
-          o  Maximum value for PENs is hereby defined within 2**32-1 with 0 and 0xFFFFFF (in hex) marked as Reserved.
-          (Note that while the original PEN definition has no upper bound, this document defines the upper bound,
-          because some protocol make assumptions about how big PENs can be.
-          For example, DIAMETER <xref target="RFC3588"/> assumes that this value is no bigger than 2**32-1.)
-          <!--pearl: i cannot be sure if we can insert the upper limit and mark it as "Reserved" in the registry as it's an event-triggered base page. -->
+          The range for PENs is 0 to 2**32-1. The values 0 and 4294967295 are marked as Reserved.
+          Note that while the original PEN definition had no upper bound, this document now defines the upper bound
+          because some protocols limit how big PENs can be.
+          For example, DIAMETER <xref target="RFC3588"/> specifies that PENs used in that protocol can be no bigger than 2**32-1.
         </t>
 
       </section>
@@ -458,7 +448,7 @@ This reservation is described in <xref target="RFC5612"/>.
   </middle>
   <back>
     <references title="Normative References">
-	      &RFC2119;
+	      &RFC1229;
 	      &RFC5226;
 
         <reference anchor="I-D.ietf-precis-nickname">
@@ -480,10 +470,6 @@ This reservation is described in <xref target="RFC5612"/>.
     </references>
 
     <references title="Informative References">
-    	  &RFC1065;
-	      &RFC1157;
-	      &RFC1213;
-	      &RFC2578;
         &RFC3588;
 	      &RFC5280;
 	      &RFC5284;
