@@ -334,10 +334,7 @@ particular PEN might or might not be used.
         <t> Reference</t>
         <t> Comments</t>
 
-        <t>NOTE: See <xref target="new-assignment"/> for definition of these properties.
-        In specific, IANA is allowed to change the Registrant Name and Contact Name to
-        use characters that IANA believes are likely to appear consistently when the registry
-        is displayed as a web page.</t>
+        <t>NOTE: See <xref target="new-assignment"/> for definition of these properties.</t>
 
         <t>o  Values marked as "Reserved" (excluding value zero) in the registry can not be reassigned
         to a new company or individual without consulting IESG (or expert(s) designated by IESG).
